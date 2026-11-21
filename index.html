@@ -130,6 +130,8 @@
         <a href="#home">Back to top ↑</a>
     </footer>
 
+    <a class="scroll-top" href="#home" aria-label="Scroll to top" title="Scroll to top">↑</a>
+
     <script>
         const menuToggle = document.getElementById("menu-toggle");
         const navigationLinks = document.querySelectorAll(".nav a");
@@ -141,6 +143,10 @@
                 }
             });
         });
+
+        window.addEventListener("scroll", () => {
+            document.body.classList.toggle("scroll-active", window.scrollY > 300);
+        }, { passive: true });
     </script>
 </body>
 </html>

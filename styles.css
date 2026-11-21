@@ -571,6 +571,39 @@ footer a:hover {
     transform: translateY(-2px);
 }
 
+.scroll-top {
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ink);
+    background: var(--yellow);
+    color: #171719;
+    box-shadow: 5px 5px 0 var(--ink);
+    font-size: 22px;
+    font-weight: 700;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity 180ms ease, visibility 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.scroll-top:hover {
+    box-shadow: 2px 2px 0 var(--ink);
+    transform: translate(3px, 3px);
+}
+
+body.scroll-active .scroll-top,
+.scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
