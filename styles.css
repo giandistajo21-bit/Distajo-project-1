@@ -20,6 +20,7 @@ body {
     background: var(--paper);
     color: var(--ink);
     font-family: "DM Sans", sans-serif;
+    transition: background-color 300ms ease, color 300ms ease;
 }
 
 a {
@@ -35,6 +36,7 @@ a {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--line);
+    animation: slide-down 700ms ease-out both;
 }
 
 .logo {
@@ -52,6 +54,39 @@ a {
     gap: 32px;
     font-size: 14px;
     font-weight: 600;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes image-in {
+    from {
+        opacity: 0;
+        transform: scale(0.94) rotate(2deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
 }
 
 .header-actions {
@@ -113,6 +148,11 @@ body:has(.theme-toggle input:checked) footer {
     color: #f5f3ee;
 }
 
+body:has(.theme-toggle input:checked) .contact {
+    background: var(--yellow);
+    color: #171719;
+}
+
 .nav a {
     position: relative;
 }
@@ -152,12 +192,17 @@ body:has(.theme-toggle input:checked) footer {
     font-weight: 700;
 }
 
+.eyebrow {
+    animation: fade-up 700ms 80ms ease-out both;
+}
+
 .hero h1 {
     max-width: 700px;
     font-family: "Syne", sans-serif;
     font-size: clamp(68px, 9vw, 112px);
     line-height: 0.88;
     letter-spacing: -0.06em;
+    animation: fade-up 800ms 180ms ease-out both;
 }
 
 .intro {
@@ -165,12 +210,14 @@ body:has(.theme-toggle input:checked) footer {
     margin-top: 28px;
     font-size: 20px;
     line-height: 1.55;
+    animation: fade-up 800ms 300ms ease-out both;
 }
 
 .hero-actions {
     display: flex;
     gap: 12px;
     margin-top: 32px;
+    animation: fade-up 800ms 420ms ease-out both;
 }
 
 .button {
@@ -182,7 +229,11 @@ body:has(.theme-toggle input:checked) footer {
     border: 1px solid var(--ink);
     font-size: 14px;
     font-weight: 700;
-    transition: 180ms ease;
+    transition: 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
 }
 
 .button-primary {
@@ -193,6 +244,15 @@ body:has(.theme-toggle input:checked) footer {
 .button-primary:hover {
     background: var(--yellow);
     color: var(--ink);
+}
+
+body:has(.theme-toggle input:checked) .button-primary {
+    background: var(--yellow);
+    color: #171719;
+}
+
+body:has(.theme-toggle input:checked) .button-primary:hover {
+    background: #f5f3ee;
 }
 
 .button-secondary:hover {
@@ -212,6 +272,14 @@ body:has(.theme-toggle input:checked) footer {
     background:
         linear-gradient(135deg, rgba(223, 255, 69, 0.88), rgba(223, 255, 69, 0.15)),
         #d7d5ce;
+    box-shadow: 18px 18px 0 var(--yellow);
+    animation: image-in 900ms 240ms ease-out both;
+    transition: box-shadow 250ms ease, transform 250ms ease;
+}
+
+.profile-frame:hover {
+    box-shadow: 10px 10px 0 var(--yellow);
+    transform: translate(4px, 4px);
 }
 
 .profile-frame img {
@@ -219,6 +287,13 @@ body:has(.theme-toggle input:checked) footer {
     height: 100%;
     display: block;
     object-fit: cover;
+    filter: saturate(0.85) contrast(1.04);
+    transition: filter 300ms ease, transform 500ms ease;
+}
+
+.profile-frame:hover img {
+    filter: saturate(1) contrast(1.02);
+    transform: scale(1.035);
 }
 
 .status {
@@ -233,6 +308,7 @@ body:has(.theme-toggle input:checked) footer {
     background: var(--white);
     font-size: 13px;
     font-weight: 700;
+    animation: fade-up 700ms 600ms ease-out both;
 }
 
 .status span {
@@ -240,11 +316,35 @@ body:has(.theme-toggle input:checked) footer {
     height: 8px;
     border-radius: 50%;
     background: #86a500;
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(134, 165, 0, 0.45);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(134, 165, 0, 0);
+    }
 }
 
 .section {
     border-top: 1px solid var(--line);
     padding: 78px max(24px, calc((100% - 1120px) / 2));
+    animation: section-reveal 800ms ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 28%;
+}
+
+@keyframes section-reveal {
+    from {
+        opacity: 0.35;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .about-grid,
@@ -290,6 +390,24 @@ body:has(.theme-toggle input:checked) footer {
     padding: 28px;
     border-right: 1px solid #4a4a4c;
     border-bottom: 1px solid #4a4a4c;
+    transition: background 220ms ease, transform 220ms ease;
+}
+
+.card:hover {
+    background: #242426;
+    transform: translateY(-6px);
+}
+
+.card:nth-child(1) {
+    animation: fade-up 700ms 200ms ease-out both;
+}
+
+.card:nth-child(2) {
+    animation: fade-up 700ms 320ms ease-out both;
+}
+
+.card:nth-child(3) {
+    animation: fade-up 700ms 440ms ease-out both;
 }
 
 .card-number {
@@ -343,6 +461,11 @@ body:has(.theme-toggle input:checked) footer {
 .contact-details a {
     font-size: 18px;
     border-bottom: 1px solid var(--ink);
+    transition: opacity 180ms ease;
+}
+
+.contact-details a:hover {
+    opacity: 0.55;
 }
 
 footer {
@@ -354,6 +477,29 @@ footer {
     background: var(--ink);
     color: var(--white);
     font-size: 13px;
+}
+
+footer a {
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+footer a:hover {
+    color: var(--yellow);
+    transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 @media (max-width: 800px) {
