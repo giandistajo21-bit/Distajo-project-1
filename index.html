@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Gian Destajo | Web Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Gian Destajo, a web developer with skills in HTML, CSS, and responsive web development.">
+    <meta name="author" content="Gian Destajo">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#171719">
+    <meta property="og:title" content="Gian Destajo | Web Developer Portfolio">
+    <meta property="og:description" content="Explore Gian Destajo's education, web development skills, and hobbies.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="profile.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="header">
         <a class="logo" href="#home" aria-label="Go to home">Portfolio<span>.</span></a>
         <div class="header-actions">
             <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
-            <label class="menu-button" for="menu-toggle" title="Open navigation menu">
+            <label class="menu-button" for="menu-toggle" title="Open navigation menu" aria-label="Open navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -25,13 +34,13 @@
                 <a href="#contact">Contact</a>
             </nav>
             <label class="theme-toggle" title="Toggle dark mode">
-                <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" role="switch" aria-label="Toggle dark mode">
                 <span class="toggle-track"><span class="toggle-thumb"></span></span>
             </label>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="hero" id="home">
             <div class="hero-content">
                 <p class="eyebrow">Hello, I'm</p>
@@ -45,7 +54,7 @@
 
             <div class="profile-wrap">
                 <div class="profile-frame">
-                    <img src="profile.jpg" alt="Profile picture">
+                    <img src="profile.jpg" alt="Gian Destajo sitting with his motorcycle" width="330" height="390" loading="eager" decoding="async">
                 </div>
                 <div class="status">
                     <span></span>
@@ -100,12 +109,12 @@
             <p class="section-label">03 / Contact</p>
             <div class="contact-grid">
                 <h2>Let's work together.</h2>
-                <form class="contact-form" action="mailto:your.email@example.com" method="post" enctype="text/plain">
+                <form class="contact-form" action="mailto:your.email@example.com" method="post" enctype="text/plain" aria-label="Contact Gian Destajo">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                    <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
 
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="your.email@example.com" required>
 
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" placeholder="Tell me about your project" required></textarea>
