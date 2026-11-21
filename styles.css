@@ -14,6 +14,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 24px;
 }
 
 body {
@@ -189,6 +190,7 @@ body:has(.theme-toggle input:checked) .contact {
     grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
     gap: 60px;
+    scroll-margin-top: 24px;
 }
 
 .eyebrow,
@@ -339,6 +341,7 @@ body:has(.theme-toggle input:checked) .button-primary:hover {
 .section {
     border-top: 1px solid var(--line);
     padding: 78px max(24px, calc((100% - 1120px) / 2));
+    scroll-margin-top: 24px;
     animation: section-reveal 800ms ease-out both;
     animation-timeline: view();
     animation-range: entry 10% cover 28%;
