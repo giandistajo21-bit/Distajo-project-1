@@ -12,11 +12,17 @@
 <body>
     <header class="header">
         <a class="logo" href="#home" aria-label="Go to home">Portfolio<span>.</span></a>
-        <nav class="nav" aria-label="Main navigation">
-            <a href="#about">About</a>
-            <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-actions">
+            <nav class="nav" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#credentials">Credentials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <label class="theme-toggle" title="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            </label>
+        </div>
     </header>
 
     <main>
