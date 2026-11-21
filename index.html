@@ -94,12 +94,18 @@
             <p class="section-label">03 / Contact</p>
             <div class="contact-grid">
                 <h2>Let's work together.</h2>
-                <div class="contact-details">
-                    <p>Email</p>
-                    <a href="mailto:your.email@example.com">your.email@example.com</a>
-                    <p>Phone</p>
-                    <a href="tel:+00000000000">+00 000 000 000</a>
-                </div>
+                <form class="contact-form" action="mailto:your.email@example.com" method="post" enctype="text/plain">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+
+                    <button class="button button-primary" type="submit">Send Message</button>
+                </form>
             </div>
         </section>
     </main>

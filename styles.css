@@ -151,6 +151,8 @@ body:has(.theme-toggle input:checked) footer {
 body:has(.theme-toggle input:checked) .contact {
     background: var(--yellow);
     color: #171719;
+    --ink: #171719;
+    --white: #ffffff;
 }
 
 .nav a {
@@ -466,6 +468,55 @@ body:has(.theme-toggle input:checked) .button-primary:hover {
 
 .contact-details a:hover {
     opacity: 0.55;
+}
+
+.contact-form {
+    display: grid;
+    gap: 10px;
+}
+
+.contact-form label {
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    outline: none;
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.contact-form input {
+    height: 48px;
+    padding: 0 14px;
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    padding: 14px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #171719;
+    box-shadow: 4px 4px 0 #171719;
+}
+
+.contact-form .button {
+    width: 180px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 footer {
